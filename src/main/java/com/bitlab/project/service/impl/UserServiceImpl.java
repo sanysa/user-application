@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -23,5 +25,15 @@ public class UserServiceImpl implements UserService {
         user.setUsername(userDto.username());
 
         userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getUsersByEmailAndUsername(String email, String username) {
+        return List.of();
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return List.of();
     }
 }
