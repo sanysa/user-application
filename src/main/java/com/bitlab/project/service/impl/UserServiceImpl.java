@@ -1,5 +1,6 @@
 package com.bitlab.project.service.impl;
 
+import com.bitlab.project.mapper.UserMapper;
 import com.bitlab.project.model.dto.UserDto;
 import com.bitlab.project.model.entity.User;
 import com.bitlab.project.repository.UserRepository;
@@ -16,13 +17,11 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-
+    private final UserMapper userMapper;
 
     @Override
     public void save(UserDto userDto) {
-        User user = new User();
-        user.setEmail(userDto.email());
-        user.setUsername(userDto.username());
+        User user = userMapper.toUser(userDto);
 
         userRepository.save(user);
     }

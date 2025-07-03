@@ -1,5 +1,6 @@
 package com.bitlab.project.controller;
 
+import com.bitlab.project.model.dto.UserDto;
 import com.bitlab.project.model.entity.User;
 import com.bitlab.project.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -25,4 +26,11 @@ public class UserController {
                                                @RequestParam String username) {
         return userService.getUsersByEmailAndUsername(email, username);
     }
+
+    @PostMapping
+    public void save(@RequestBody UserDto dto) {
+        userService.save(dto);
+    }
+
+
 }
